@@ -4966,6 +4966,9 @@ class Context {
         this.payload = {};
         if (process.env.GITHUB_EVENT_PATH) {
             if ((0, fs_1.existsSync)(process.env.GITHUB_EVENT_PATH)) {
+                // SHOW ME THE TRUTH
+                console.log((0, fs_1.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: 'utf8' }));
+                
                 this.payload = JSON.parse((0, fs_1.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: 'utf8' }));
             }
             else {
